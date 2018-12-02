@@ -20,6 +20,20 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
+/**
+ * TODO: what kind of configuration settings should we provide and how should it be exposed? A builder DSL?
+ * tcpServer {
+ *     port = 5051
+ *     hostname = localhost
+ *     tcpFastStartup = false
+ *     reuse = true
+ *     keepalive = true
+ *     sendBufferSize = 1_MB
+ *     receiveBufferSize = 1_MB
+ *     // are there any other options that we should expose here?
+ * }
+ *
+ */
 class TcpServerImpl : Server<TcpSocket> {
     private companion object {
         private val LOG by LoggerDelegate()

@@ -1,1 +1,1 @@
-include("core")
+include("client", "core","protocols", "protocols:http", "server")

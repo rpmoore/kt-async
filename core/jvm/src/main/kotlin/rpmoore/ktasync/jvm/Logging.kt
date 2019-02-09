@@ -1,11 +1,11 @@
 /*
  * *
- *  * Copyright of Ryan Moore (c) 2018.
+ *  * Copyright of Ryan Moore (c) 2019.
  * /
  *
  */
 
-package rpmoore.ktasync
+package rpmoore.ktasync.jvm
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory.getLogger

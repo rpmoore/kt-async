@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.3.10" apply false
+    kotlin("multiplatform") version "1.3.21" apply false
 }
 
 allprojects {
@@ -10,10 +10,6 @@ allprojects {
 subprojects {
     apply(plugin = "kotlin")
 
-    configure<JavaPluginExtension> {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-    }
-
     repositories {
         mavenCentral()
         jcenter()
@@ -22,6 +18,6 @@ subprojects {
     dependencies {
         "implementation"(kotlin("stdlib"))
         "implementation"(kotlin("reflect"))
-        "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1")
+        "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.1.1")
     }
 }

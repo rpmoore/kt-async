@@ -5,5 +5,5 @@
  *
  */
 
-package rpmoore.ktasync
+package rpmoore.ktasync.jvm
 

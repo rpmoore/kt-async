@@ -8,9 +8,7 @@
 package rpmoore.ktasync.jvm
 
 import rpmoore.ktasync.Client
-import rpmoore.ktasync.TcpSocket
 import java.nio.channels.AsynchronousSocketChannel
-import java.util.concurrent.TimeUnit
 
 class TcpClientImpl : Client<TcpSocket> {
 
@@ -21,9 +19,8 @@ class TcpClientImpl : Client<TcpSocket> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override suspend fun open(time: Int, unit: TimeUnit): TcpSocket {
+    override suspend fun open(timeout: Int): TcpSocket {
 
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }

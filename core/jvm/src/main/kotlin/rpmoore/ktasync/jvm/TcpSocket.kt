@@ -1,13 +1,14 @@
 /*
  * *
- *  * Copyright of Ryan Moore (c) 2018.
+ *  * Copyright of Ryan Moore (c) 2019.
  * /
  *
  */
 
-package rpmoore.ktasync
+package rpmoore.ktasync.jvm
 
-import java.nio.Buffer
+import rpmoore.ktasync.Socket
+import java.io.Closeable
 import java.nio.ByteBuffer
 import java.nio.channels.AsynchronousSocketChannel
 import java.nio.channels.CompletionHandler
@@ -16,10 +17,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-class TcpSocket(private val socket: AsynchronousSocketChannel) : Socket {
-    override suspend fun read(buffer: ByteBuffer): Int {
-        return socket.asyncRead(buffer)
-    }
+class TcpSocket(private val socket: AsynchronousSocketChannel) : Socket, Closeable {
 
     override suspend fun write() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

@@ -7,8 +7,6 @@
 
 package rpmoore.ktasync
 
-import java.util.concurrent.TimeUnit
-
 interface Client<T: Socket> {
     /**
      * Attempts to connect to a remote system and return a socket to that system.
@@ -16,7 +14,8 @@ interface Client<T: Socket> {
     suspend fun open(): T
 
     /**
-     * Opens a connection to a remote system, but with a timeout.  If the connection request times out, a TimeoutException will be thrown
+     * Opens a connection to a remote system, but with a timeout.  If the connection request times out, a TimeoutException will be thrown.
+     * @param time The timeout value in milliseconds
      */
-    suspend fun open(time: Int, unit: TimeUnit): T
+    suspend fun open(timeout: Int): T
 }

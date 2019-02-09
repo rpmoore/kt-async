@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.3.10" apply false
+    kotlin("multiplatform") version "1.3.10" apply false
 }
 
 allprojects {
@@ -8,7 +8,6 @@ allprojects {
 }
 
 subprojects {
-    apply(plugin = "java")
     apply(plugin = "kotlin")
 
     configure<JavaPluginExtension> {
@@ -24,6 +23,5 @@ subprojects {
         "implementation"(kotlin("stdlib"))
         "implementation"(kotlin("reflect"))
         "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1")
-        "implementation"(group = "org.slf4j", name = "slf4j-api", version = "1.7.25")
     }
 }

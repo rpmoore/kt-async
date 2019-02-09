@@ -5,7 +5,7 @@
  *
  */
 
-package rpmoore.ktasync.impl
+package rpmoore.ktasync.jvm
 
 import rpmoore.ktasync.Client
 import rpmoore.ktasync.TcpSocket

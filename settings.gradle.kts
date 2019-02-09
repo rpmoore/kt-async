@@ -1,1 +1,1 @@
-include("client", "core","protocols", "protocols:http", "server")
+include("client", "core", "core:jvm", "protocols", "protocols:http", "server")

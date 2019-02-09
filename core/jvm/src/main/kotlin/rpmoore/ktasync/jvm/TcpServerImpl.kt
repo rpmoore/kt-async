@@ -5,7 +5,7 @@
  *
  */
 
-package rpmoore.ktasync.impl
+package rpmoore.ktasync.jvm
 
 import rpmoore.ktasync.LoggerDelegate
 import rpmoore.ktasync.Server
@@ -39,13 +39,11 @@ class TcpServerImpl : Server<TcpSocket> {
         private val LOG by LoggerDelegate()
     }
 
-    private val acceptHandler = AcceptHandler()
-
     private val serverSocket = AsynchronousServerSocketChannel.open().bind(InetSocketAddress("localhost", 5051))
 
     override suspend fun accept(): TcpSocket {
         return suspendCoroutine { continuation ->
-            serverSocket.accept(continuation, acceptHandler)
+            serverSocket.accept(continuation, AcceptHandler)
         }
     }
 
@@ -53,7 +51,7 @@ class TcpServerImpl : Server<TcpSocket> {
         serverSocket.close()
     }
 
-    class AcceptHandler : CompletionHandler<AsynchronousSocketChannel, Continuation<TcpSocket>> {
+    object AcceptHandler : CompletionHandler<AsynchronousSocketChannel, Continuation<TcpSocket>> {
         override fun completed(result: AsynchronousSocketChannel?, continuation: Continuation<TcpSocket>) {
             if (result != null) {
                 continuation.resume(TcpSocket(result))

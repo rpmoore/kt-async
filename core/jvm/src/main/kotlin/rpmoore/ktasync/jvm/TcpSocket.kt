@@ -17,12 +17,17 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
+/**
+ */
 class TcpSocket(private val socket: AsynchronousSocketChannel) : Socket, Closeable {
 
-    override suspend fun write() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+    override fun sink(): Sink {
+
     }
 
+    override fun source(): Source {
+    }
     override fun close() {
         socket.close()
     }
